@@ -6,6 +6,10 @@ store drop-off — fused with region-specific rules, then tracks your personal i
 
 Built for **NextStep Hacks 2026 — Earth Forward**.
 
+| Verdict | SortLab — condition flip | Impact |
+|---|---|---|
+| ![AI verdict card](screenshots/1-verdict-card.png) | ![SortLab](screenshots/3-sortlab-sf.png) | ![Impact](screenshots/4-impact.png) |
+
 ## The problem
 
 The #1 reason recycling fails isn't apathy — it's **wishcycling**. People toss questionable

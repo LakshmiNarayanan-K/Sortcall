@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import rulesData from "@/data/disposal-rules.json";
 import { verdictFromRule } from "@/lib/verdict";
 import { BinBadge } from "@/components/bin-badge";
@@ -35,6 +35,12 @@ const flipItems = allRules.filter((r) => {
 export default function LabPage() {
   const [itemId, setItemId] = useState("pizza-box");
   const [region, setRegion] = useState("us-generic");
+
+  useEffect(() => {
+    // Deep link: /lab?region=us-ca-sf presets the region (shareable verdict-flip states).
+    const r = new URLSearchParams(window.location.search).get("region");
+    if (r) setRegion(r);
+  }, []);
 
   const clean = useMemo(() => verdictFromRule(itemId, "clean", region), [itemId, region]);
   const contaminated = useMemo(() => verdictFromRule(itemId, "contaminated", region), [itemId, region]);
