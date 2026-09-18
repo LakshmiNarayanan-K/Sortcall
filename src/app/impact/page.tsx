@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { clearLog, computeStats, getLog, type ImpactStats } from "@/lib/impact-log";
+import { clearLog, computeStats, getLog, seedDemo, type ImpactStats } from "@/lib/impact-log";
 import { downloadImpactCard } from "@/components/impact-card-canvas";
 import { BinBadge } from "@/components/bin-badge";
 import type { Bin } from "@/lib/types";
@@ -10,6 +10,10 @@ export default function ImpactPage() {
   const [stats, setStats] = useState<ImpactStats | null>(null);
 
   useEffect(() => {
+    const sp = new URLSearchParams(window.location.search);
+    if (sp.get("seed") === "1") {
+      seedDemo();
+    }
     setStats(computeStats(getLog()));
   }, []);
 

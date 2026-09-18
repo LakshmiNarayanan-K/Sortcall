@@ -26,6 +26,16 @@ export default function SortPage() {
   useEffect(() => {
     const saved = window.localStorage.getItem(REGION_KEY);
     if (saved) setRegion(saved);
+
+    // Deep links: /?sample=<id> or /?q=<text> auto-run a sort; /?region=<id> presets region.
+    const sp = new URLSearchParams(window.location.search);
+    const r = sp.get("region");
+    if (r) pickRegion(r);
+    const sample = sp.get("sample");
+    const q = sp.get("q");
+    if (sample) onSample(sample);
+    else if (q) sort({ query: q });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function pickRegion(id: string) {

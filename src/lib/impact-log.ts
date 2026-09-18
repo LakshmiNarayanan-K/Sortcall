@@ -31,6 +31,27 @@ export function addEntry(entry: ImpactEntry): ImpactEntry[] {
   return log;
 }
 
+/** Fill the log with demo entries (only when empty) — used by /impact?seed=1 for screenshots and demos. */
+export function seedDemo(): ImpactEntry[] {
+  const now = Date.now();
+  const day = 86_400_000;
+  const entries: ImpactEntry[] = [
+    { ts: now - 0.2 * day, item: "pizza box", bin: "compost", co2eKg: 0.25 },
+    { ts: now - 0.5 * day, item: "water bottle", bin: "recycle", co2eKg: 0.18 },
+    { ts: now - 1.2 * day, item: "old phone", bin: "ewaste", co2eKg: 0.6 },
+    { ts: now - 1.8 * day, item: "banana peel", bin: "compost", co2eKg: 0.25 },
+    { ts: now - 2.4 * day, item: "greasy takeout box", bin: "landfill", co2eKg: 0 },
+    { ts: now - 3.1 * day, item: "glass jar", bin: "recycle", co2eKg: 0.18 },
+    { ts: now - 4.2 * day, item: "plastic bags", bin: "special", co2eKg: 0.2 },
+  ];
+  try {
+    window.localStorage.setItem(KEY, JSON.stringify(entries));
+  } catch {
+    /* noop */
+  }
+  return entries;
+}
+
 export function clearLog(): void {
   try {
     window.localStorage.removeItem(KEY);
