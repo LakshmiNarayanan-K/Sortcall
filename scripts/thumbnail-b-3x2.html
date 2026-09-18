@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1920px; height: 1280px; overflow: hidden; font-family: "Segoe UI", system-ui, sans-serif; }
+  .stage { width: 1920px; height: 1280px; position: relative; background: #071410; }
+  .half { position: absolute; top: 0; width: 960px; height: 1000px; }
+  .left  { left: 0;  background: linear-gradient(160deg, rgba(52,211,153,0.30), rgba(13,33,27,0.6)); }
+  .right { right: 0; background: linear-gradient(200deg, rgba(248,113,113,0.28), rgba(13,33,27,0.6)); }
+  .vs { position: absolute; left: 50%; top: 400px; transform: translateX(-50%);
+    width: 150px; height: 150px; border-radius: 50%; background: #071410; border: 5px solid #34d399;
+    color: #fff; font-weight: 900; font-size: 60px; display: grid; place-items: center; z-index: 5;
+    box-shadow: 0 0 60px rgba(52,211,153,0.5); }
+  .emoji { font-size: 280px; position: absolute; top: 130px; }
+  .left .emoji { left: 130px; }
+  .right .emoji { right: 130px; transform: scaleX(-1); }
+  .cond { position: absolute; top: 490px; width: 100%; text-align: center; color: #e7f6ee; font-weight: 800; font-size: 54px; letter-spacing: 2px; }
+  .verdict { position: absolute; top: 590px; width: 100%; text-align: center; font-weight: 900; font-size: 88px; letter-spacing: -1px; }
+  .left .verdict { color: #34d399; }
+  .right .verdict { color: #f87171; }
+  .headline { position: absolute; top: 1040px; width: 100%; text-align: center; color: #ffffff; font-weight: 900; font-size: 76px; letter-spacing: -1px; }
+  .headline span { color: #34d399; }
+  .tagline { position: absolute; top: 1160px; width: 100%; text-align: center; color: #8fb8a8; font-weight: 600; font-size: 40px; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="half left"><div class="emoji">♻️</div><div class="cond">CLEAN &amp; DRY</div><div class="verdict">RECYCLE ✓</div></div>
+  <div class="half right"><div class="emoji">🍕</div><div class="cond">GREASY BOX</div><div class="verdict">LANDFILL ✗</div></div>
+  <div class="vs">VS</div>
+  <div class="headline">SAME PIZZA BOX. <span>AI CALLS IT RIGHT.</span></div>
+  <div class="tagline">SortCall · Make the right call at the bin · NextStep Hacks 2026</div>
+</div>
+</body>
+</html>
