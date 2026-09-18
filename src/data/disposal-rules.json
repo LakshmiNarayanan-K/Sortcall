@@ -1,0 +1,407 @@
+{
+  "meta": {
+    "source": "Curated generic US single-family curbside guidance, compiled from EPA and municipal program rules. Educational only - always check your local program.",
+    "lastUpdated": "2026-09-18"
+  },
+  "co2ePerItemKg": {
+    "recycle": 0.18,
+    "compost": 0.25,
+    "landfill": 0,
+    "ewaste": 0.6,
+    "hazardous": 0.15,
+    "special": 0.2
+  },
+  "regions": [
+    {
+      "id": "us-generic",
+      "name": "Generic US (curbside)",
+      "aliases": ["us", "usa", "generic", "default"]
+    },
+    {
+      "id": "us-ca-sf",
+      "name": "San Francisco, CA (Recology)",
+      "aliases": ["sf", "san francisco", "bay area"]
+    },
+    {
+      "id": "us-ny-nyc",
+      "name": "New York City (DSNY)",
+      "aliases": ["nyc", "new york", "new york city"]
+    }
+  ],
+  "regionNotes": {
+    "us-ca-sf": "San Francisco uses the three-cart system (blue recycling, green compost, black landfill) and composting of food soiled paper is mandatory.",
+    "us-ny-nyc": "NYC DSNY separates organics (brown bin) from metal/glass/plastic/paper recycling; Electronics are banned from curbside trash."
+  },
+  "baseRules": [
+    {
+      "id": "pizza-box",
+      "item": "pizza box",
+      "category": "Paper",
+      "keywords": ["pizza", "pizza box", "cardboard box"],
+      "clean": {
+        "bin": "recycle",
+        "reasoning": "Clean corrugated cardboard is widely recyclable. Flatten it and keep it dry."
+      },
+      "contaminated": {
+        "bin": "landfill",
+        "reasoning": "Grease and cheese soaked into cardboard cannot be filtered out during paper recycling — it ruins the whole batch. Torn clean lids can still be recycled."
+      },
+      "ruleTitle": "The grease rule",
+      "ruleDetail": "Food-soiled paper goes to landfill or compost depending on your program; grease is the #1 recycling contaminant."
+    },
+    {
+      "id": "plastic-bottle",
+      "item": "plastic bottle",
+      "category": "Plastic",
+      "keywords": ["plastic bottle", "water bottle", "soda bottle", "pet bottle", "bottle"],
+      "clean": {
+        "bin": "recycle",
+        "reasoning": "Empty, clean and dry PET/HDPE bottles are among the most valuable recyclables. Caps on or off per local program."
+      },
+      "contaminated": {
+        "bin": "recycle",
+        "reasoning": "Rinse it out first — leftover liquid or food residue can contaminate other recyclables, but the bottle itself still recycles."
+      },
+      "ruleTitle": "Empty, clean, dry",
+      "ruleDetail": "Liquids and food residue are the top cause of rejected recycling loads."
+    },
+    {
+      "id": "aluminum-can",
+      "item": "aluminum can",
+      "category": "Metal",
+      "keywords": ["aluminum can", "soda can", "beer can", "tin can", "can", "beverage can"],
+      "clean": {
+        "bin": "recycle",
+        "reasoning": "Aluminum is infinitely recyclable and recycles with a fraction of the energy of new metal."
+      },
+      "contaminated": {
+        "bin": "recycle",
+        "reasoning": "Still recyclable — rinse to keep pests away. If it's half full, empty it first."
+      },
+      "ruleTitle": "Metal always recycles",
+      "ruleDetail": "Aluminum and steel cans are accepted in virtually every US curbside program."
+    },
+    {
+      "id": "glass-jar",
+      "item": "glass jar or bottle",
+      "category": "Glass",
+      "keywords": ["glass jar", "glass bottle", "mason jar", "jam jar", "glass"],
+      "clean": {
+        "bin": "recycle",
+        "reasoning": "Glass is infinitely recyclable with no loss of quality."
+      },
+      "contaminated": {
+        "bin": "recycle",
+        "reasoning": "Rinse it out. Labels can stay on. If broken, wrap safely — some programs don't take broken glass curbside."
+      },
+      "ruleTitle": "Rinse, don't break",
+      "ruleDetail": "Ceramics, Pyrex and window glass are NOT the same as container glass — they melt differently and ruin batches."
+    },
+    {
+      "id": "coffee-cup",
+      "item": "paper coffee cup",
+      "category": "Paper",
+      "keywords": ["coffee cup", "paper cup", "to-go cup", "starbucks cup", "cupp"],
+      "clean": {
+        "bin": "landfill",
+        "reasoning": "Most to-go cups are lined with polyethylene that standard paper mills can't process — even 'clean' ones. The plastic lid usually recycles; the sleeve is compostable."
+      },
+      "contaminated": {
+        "bin": "landfill",
+        "reasoning": "Leftover coffee plus the plastic lining makes this a textbook landfill item. Lid: recycle if marked #5. Sleeve: compost."
+      },
+      "ruleTitle": "The sneaky one",
+      "ruleDetail": "Wishcycling poster child: cups FEEL like paper but are plastic-lined composite."
+    },
+    {
+      "id": "battery",
+      "item": "battery",
+      "category": "Hazardous",
+      "keywords": ["battery", "batteries", "aa", "aaa", "lithium", "li-ion", "rechargeable"],
+      "clean": {
+        "bin": "hazardous",
+        "reasoning": "Batteries must never go in curbside bins — lithium ones ignite in trucks and sorting facilities. Take to a drop-off (many hardware and electronics stores accept them)."
+      },
+      "contaminated": {
+        "bin": "hazardous",
+        "reasoning": "Damaged or swollen batteries are a serious fire risk — tape the terminals and take to a hazardous waste drop-off immediately."
+      },
+      "ruleTitle": "The fire starter",
+      "ruleDetail": "Batteries are the leading cause of recycling facility fires."
+    },
+    {
+      "id": "electronics",
+      "item": "electronic device",
+      "category": "E-waste",
+      "keywords": ["phone", "laptop", "charger", "cable", "electronic", "tablet", "keyboard", "mouse", "earbuds", "headphones", "e-waste", "tv", "monitor"],
+      "clean": {
+        "bin": "ewaste",
+        "reasoning": "Electronics contain recoverable precious metals AND toxic solder, mercury or lead. E-waste drop-off or retailer take-back beats the landfill every time."
+      },
+      "contaminated": {
+        "bin": "ewaste",
+        "reasoning": "Still e-waste — wipe your data first, then drop off at an e-waste collection point."
+      },
+      "ruleTitle": "Never the bin",
+      "ruleDetail": "E-waste is banned from curbside trash in many jurisdictions."
+    },
+    {
+      "id": "plastic-bag",
+      "item": "plastic bag or film",
+      "category": "Plastic",
+      "keywords": ["plastic bag", "grocery bag", "ziploc", "cling film", "plastic wrap", "bubble wrap", "film"],
+      "clean": {
+        "bin": "special",
+        "reasoning": "Bags and film jam sorting machinery — never curbside. Store-drop-off bins (grocery stores) take clean, dry bags and film."
+      },
+      "contaminated": {
+        "bin": "landfill",
+        "reasoning": "Dirty or wet film isn't accepted even at store drop-off bins."
+      },
+      "ruleTitle": "The jammer",
+      "ruleDetail": "Film plastics tangle in sorting equipment, shutting facilities down for hours."
+    },
+    {
+      "id": "food-scraps",
+      "item": "food scraps",
+      "category": "Organic",
+      "keywords": ["food", "scraps", "peel", "banana peel", "apple core", "leftovers", "vegetable", "fruit"],
+      "clean": {
+        "bin": "compost",
+        "reasoning": "Food scraps are compost gold — if your city has organics collection, they belong in the green/brown bin."
+      },
+      "contaminated": {
+        "bin": "compost",
+        "reasoning": "All food is compostable, but remove any packaging first. Meat and dairy rules vary by program."
+      },
+      "ruleTitle": "Feed the soil",
+      "ruleDetail": "Food in landfill generates methane, a greenhouse gas ~28x more potent than CO2."
+    },
+    {
+      "id": "styrofoam",
+      "item": "styrofoam",
+      "category": "Plastic",
+      "keywords": ["styrofoam", "foam", "eps", "foam cup", "foam container", "peanuts"],
+      "clean": {
+        "bin": "landfill",
+        "reasoning": "Expanded polystyrene (#6 foam) is rarely accepted curbside — it shatters and contaminates everything. Some specialty drop-offs take it."
+      },
+      "contaminated": {
+        "bin": "landfill",
+        "reasoning": "Food-soiled foam is definitely landfill."
+      },
+      "ruleTitle": "Wishcycle alert",
+      "ruleDetail": "Foam has the recycling arrows symbol but almost no program takes it."
+    },
+    {
+      "id": "clothing",
+      "item": "clothing or textile",
+      "category": "Textile",
+      "keywords": ["shirt", "clothes", "clothing", "textile", "shoes", "socks", "towel", "bedding"],
+      "clean": {
+        "bin": "special",
+        "reasoning": "Textiles belong in donation bins or textile recycling drop-offs — 85% of clothing ends up landfilled, mostly from wishcycling into donation bins unwearable."
+      },
+      "contaminated": {
+        "bin": "landfill",
+        "reasoning": "Wet, moldy or contaminated textiles can't be donated or recycled."
+      },
+      "ruleTitle": "The 85% problem",
+      "ruleDetail": "Donate wearable, recycle unwearable-but-dry, landfill only the truly contaminated."
+    },
+    {
+      "id": "paper",
+      "item": "paper",
+      "category": "Paper",
+      "keywords": ["paper", "newspaper", "magazine", "mail", "envelope", "notebook", "printer paper", "cardboard"],
+      "clean": {
+        "bin": "recycle",
+        "reasoning": "Clean, dry paper is core curbside recycling. Windows in envelopes are fine."
+      },
+      "contaminated": {
+        "bin": "landfill",
+        "reasoning": "Wet, greasy or wax-coated paper can't be recycled — fibers won't separate."
+      },
+      "ruleTitle": "Keep it dry",
+      "ruleDetail": "Paper fibers break down permanently when soaked."
+    },
+    {
+      "id": "coffee-grounds-filter",
+      "item": "coffee grounds and filter",
+      "category": "Organic",
+      "keywords": ["coffee grounds", "coffee filter", "tea bag", "tea leaves"],
+      "clean": {
+        "bin": "compost",
+        "reasoning": "Grounds, paper filters and most tea bags (check for plastic mesh) are compostable."
+      },
+      "contaminated": {
+        "bin": "compost",
+        "reasoning": "Even used with milk residue, grounds and filters compost fine in most programs."
+      },
+      "ruleTitle": "Morning routine, composted",
+      "ruleDetail": "Coffee grounds are nitrogen-rich compost material."
+    },
+    {
+      "id": "takeout-container",
+      "item": "takeout container",
+      "category": "Plastic",
+      "keywords": ["takeout", "takeout container", "clamshell", "deli container", "food container", "tupperware"],
+      "clean": {
+        "bin": "recycle",
+        "reasoning": "Rigid plastic containers (#1, #2, #5) recycle in most programs once rinsed."
+      },
+      "contaminated": {
+        "bin": "landfill",
+        "reasoning": "Grease-soaked containers are too contaminated — a quick rinse is the difference between recycled and landfilled."
+      },
+      "ruleTitle": "Rinse = recycled",
+      "ruleDetail": "One greasy container can contaminate a bale of recyclables."
+    },
+    {
+      "id": "cereal-box-liner",
+      "item": "cereal box",
+      "category": "Paper",
+      "keywords": ["cereal box", "cracker box", "chipboard", "boxboard"],
+      "clean": {
+        "bin": "recycle",
+        "reasoning": "Paperboard boxes recycle — remove the plastic liner bag first."
+      },
+      "contaminated": {
+        "bin": "landfill",
+        "reasoning": "If the box is grease-stained (frozen food boxes have coatings), it can't recycle."
+      },
+      "ruleTitle": "Liner out",
+      "ruleDetail": "The plastic liner bag inside goes to store drop-off with bags."
+    },
+    {
+      "id": "light-bulbs",
+      "item": "light bulb",
+      "category": "Hazardous",
+      "keywords": ["light bulb", "cfl", "fluorescent", "led bulb", "bulb"],
+      "clean": {
+        "bin": "hazardous",
+        "reasoning": "CFLs contain mercury — take to hazardous waste drop-off. LEDs contain electronics and belong in e-waste. Incandescents: trash."
+      },
+      "contaminated": {
+        "bin": "hazardous",
+        "reasoning": "A broken CFL releases mercury vapor — seal it in a container, don't vacuum, take to hazmat."
+      },
+      "ruleTitle": "Three bulbs, three rules",
+      "ruleDetail": "CFL → hazmat. LED → e-waste. Incandescent → landfill."
+    },
+    {
+      "id": "paint",
+      "item": "paint can",
+      "category": "Hazardous",
+      "keywords": ["paint", "paint can", "solvent", "thinner", "stain"],
+      "clean": {
+        "bin": "hazardous",
+        "reasoning": "Liquid paint (oil-based) is household hazardous waste. Latex paint can be dried out with cat litter and trashed where programs allow — or better, donated."
+      },
+      "contaminated": {
+        "bin": "hazardous",
+        "reasoning": "Take to a paint or hazmat drop-off — many paint retailers participate in take-back programs."
+      },
+      "ruleTitle": "Liquid vs dried",
+      "ruleDetail": "Fully dried latex paint is often landfill-safe; liquid paint never is."
+    },
+    {
+      "id": "medicine",
+      "item": "medicine",
+      "category": "Hazardous",
+      "keywords": ["medicine", "pills", "prescription", "pharmaceutical", "medication"],
+      "clean": {
+        "bin": "hazardous",
+        "reasoning": "Never flush or bin meds — take to pharmacy take-back kiosks. FDA guidance allows trashing (mixed with coffee grounds) only when no take-back exists."
+      },
+      "contaminated": {
+        "bin": "hazardous",
+        "reasoning": "Same rule — pharmacy take-back."
+      },
+      "ruleTitle": "Not in the water",
+      "ruleDetail": "Meds contaminate waterways; take-back is always first choice."
+    },
+    {
+      "id": "shredded-paper",
+      "item": "shredded paper",
+      "category": "Paper",
+      "keywords": ["shredded paper", "shredded", "confetti"],
+      "clean": {
+        "bin": "compost",
+        "reasoning": "Too small for sorting equipment — shredded paper falls through machinery. Compost it (if not glossy) or bag separately where accepted."
+      },
+      "contaminated": {
+        "bin": "landfill",
+        "reasoning": "Contaminated shreds: landfill."
+      },
+      "ruleTitle": "Too small to sort",
+      "ruleDetail": "Anything smaller than a credit card falls through sorting screens."
+    },
+    {
+      "id": "chip-bag",
+      "item": "chip bag",
+      "category": "Plastic",
+      "keywords": ["chip bag", "candy wrapper", "snack bag", "wrapper", "crisp packet"],
+      "clean": {
+        "bin": "landfill",
+        "reasoning": "Metallized plastic film (crinkly, shiny) can't recycle curbside. Terracycle-style specialty programs exist."
+      },
+      "contaminated": {
+        "bin": "landfill",
+        "reasoning": "Crumb-filled wrappers: landfill, no debate."
+      },
+      "ruleTitle": "The crinkle test",
+      "ruleDetail": "If it crinkles and springs back, it's metallized film — landfill."
+    }
+  ],
+  "regionOverrides": [
+    {
+      "regionId": "us-ca-sf",
+      "ruleId": "pizza-box",
+      "contaminated": {
+        "bin": "compost",
+        "reasoning": "San Francisco's green compost cart takes greasy pizza boxes — food-soiled paper composts here by law."
+      }
+    },
+    {
+      "regionId": "us-ca-sf",
+      "ruleId": "food-scraps",
+      "clean": {
+        "bin": "compost",
+        "reasoning": "Mandatory composting in SF — all food scraps go in the green cart."
+      }
+    },
+    {
+      "regionId": "us-ca-sf",
+      "ruleId": "coffee-cup",
+      "clean": {
+        "bin": "compost",
+        "reasoning": "SF accepts paper cups in the green compost cart (lined cups break down in commercial composting)."
+      }
+    },
+    {
+      "regionId": "us-ny-nyc",
+      "ruleId": "electronics",
+      "clean": {
+        "bin": "ewaste",
+        "reasoning": "NYC bans electronics from trash entirely — use DSNY e-waste drop-off or SAFE Disposal events."
+      }
+    },
+    {
+      "regionId": "us-ny-nyc",
+      "ruleId": "food-scraps",
+      "clean": {
+        "bin": "compost",
+        "reasoning": "NYC curbside organics collection is citywide — food scraps go in the brown bin."
+      }
+    }
+  ],
+  "demoSamples": [
+    { "id": "greasy-pizza-box", "query": "greasy pizza box with cheese stuck to the lid", "hint": "The contamination classic" },
+    { "id": "clean-bottle", "query": "clean empty plastic water bottle", "hint": "Easy recycle" },
+    { "id": "old-phone", "query": "old smartphone with cracked screen", "hint": "E-waste drop-off" },
+    { "id": "coffee-cup", "query": "paper to-go coffee cup with plastic lid", "hint": "The sneaky one" },
+    { "id": "banana-peel", "query": "banana peel", "hint": "Compost gold" },
+    { "id": "shopping-bags", "query": "plastic grocery bags", "hint": "Never curbside" }
+  ]
+}
